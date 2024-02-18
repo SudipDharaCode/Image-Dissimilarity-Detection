@@ -1,3 +1,4 @@
+--upgrade pip
 !pip install opencv-python-headless==4.5.3
 import streamlit as st
 import cv2
