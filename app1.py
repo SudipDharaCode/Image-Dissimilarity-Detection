@@ -1,7 +1,7 @@
 import streamlit as st
 import cv2
 import numpy as np
-from skimage.metrics import structural_similarity as ssim
+# from skimage.metrics import structural_similarity as ssim
 
 # Function to find the dissimilarity position and bounding boxes
 def find_dissimilarity(img1, img2):
@@ -23,16 +23,16 @@ def find_dissimilarity(img1, img2):
     
     return bounding_boxes
 
-# Function to calculate similarity score
-def calculate_similarity(img1, img2):
-    # Convert images to grayscale
-    gray_img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
-    gray_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
+# # Function to calculate similarity score
+# def calculate_similarity(img1, img2):
+#     # Convert images to grayscale
+#     gray_img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2GRAY)
+#     gray_img2 = cv2.cvtColor(img2, cv2.COLOR_BGR2GRAY)
     
-    # Calculate Structural Similarity Index (SSI)
-    score, _ = ssim(gray_img1, gray_img2, full=True)
+#     # Calculate Structural Similarity Index (SSI)
+#     score, _ = ssim(gray_img1, gray_img2, full=True)
     
-    return score
+#     return score
 
 def main():
     st.title("Image Dissimilarity Detection")
@@ -60,9 +60,9 @@ def main():
         st.write("### Image with Bounding Box Around Dissimilar Regions:")
         st.image(img1, caption="Dissimilar Regions Bounded", channels="BGR", width=300)
         
-        # Calculate and print similarity score
-        similarity_score = calculate_similarity(img1, img2)
-        st.write(f"### Similarity Score: {similarity_score}")
+        # # Calculate and print similarity score
+        # similarity_score = calculate_similarity(img1, img2)
+        # st.write(f"### Similarity Score: {similarity_score}")
 
 if __name__ == "__main__":
     main()
